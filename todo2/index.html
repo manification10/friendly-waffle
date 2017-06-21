@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-<script type="text/javascript" src="./app.js"></script>
+<script src="/node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="app.js"></script>
 <title>to-do</title>
 <body ng-app="myApp" ng-controller="todoCtrl">
+    <h2>Todo</h2>
+    
+    <input type="text" ng-model="task"></input><button ng-click="add()">Add task</button>
+    <div ng-repeat="todo in todoList">
+        <input type="checkbox" ng-model="todo.done"></input>
+        <span>{{todo.todoText}}</span>
+    </div>
+    <h2>Done tasks</h2>
+    <div ng-repeat="todo in todoList">
+        <span ng-if="todo.done" ng-bind="todo.todoText"></span>
 </body>
 </html>
